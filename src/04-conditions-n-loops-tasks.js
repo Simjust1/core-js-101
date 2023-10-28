@@ -27,8 +27,14 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  if (num % 3 === 0 && num % 5 === 0) {
+    return 'FizzBuzz';
+  } if (num % 3 === 0) {
+    return 'Fizz';
+  } if (num % 5 === 0) {
+    return 'Buzz';
+  } return num;
 }
 
 
@@ -43,8 +49,13 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  let i = 1;
+  let result = 1;
+  while (i <= n) {
+    result *= i;
+    i += 1;
+  } return result;
 }
 
 
@@ -60,8 +71,12 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  const len = n2 - n1;
+  let result = 0;
+  for (let i = 0; i <= len; i += 1) {
+    result = result + n1 + i;
+  } return result;
 }
 
 
@@ -208,8 +223,12 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  let result = '';
+  for (let i = 0; i < str.length; i += 1) {
+    result += `${str[str.length - 1 - i]}`;
+  }
+  return result;
 }
 
 
@@ -225,8 +244,13 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  let result = '';
+  const numToStr = num.toString();
+  for (let i = 0; i < numToStr.length; i += 1) {
+    result += `${numToStr[numToStr.length - 1 - i]}`;
+  }
+  return Number(result);
 }
 
 
@@ -268,8 +292,21 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  const numToStr = num.toString();
+  let result = 0;
+  let result1 = 0;
+  for (let i = 0; i < numToStr.length; i += 1) {
+    result += Number(`${numToStr[i]}`);
+  }
+  if (Number(result) > 9) {
+    const resultToStr = result.toString();
+    for (let i = 0; i < resultToStr.length; i += 1) {
+      result1 += Number(`${resultToStr[i]}`);
+    }
+    return result1;
+  }
+  return result;
 }
 
 
